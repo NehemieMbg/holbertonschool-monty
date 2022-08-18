@@ -47,5 +47,6 @@ stack_t *add_node(stack_t **stack, int n);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 void free_all(stack_t *stack, FILE *fd);
+void _pop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
