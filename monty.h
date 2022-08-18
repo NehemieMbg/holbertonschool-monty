@@ -10,8 +10,6 @@
 
 extern int error;
 
-/* Prototypes */
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,6 +39,8 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/* Prototypes */
 
 void _check(char *op, stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
