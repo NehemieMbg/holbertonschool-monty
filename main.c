@@ -1,6 +1,8 @@
 #include "monty.h"
 #include <stdio.h>
 
+int error = 0;
+
 /**
  * main - main monty program to handle the bytecode files
  * @argc: argument count
@@ -40,5 +42,8 @@ int main(int argc, char **argv)
 	}
 	free(str);
 	free_all(stack, fd);
-	exit(EXIT_SUCCESS);
+
+	if (error == 1)
+		exit(EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }

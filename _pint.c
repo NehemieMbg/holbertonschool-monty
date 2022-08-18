@@ -13,7 +13,8 @@ void _pint(stack_t **stack, unsigned int line_number)
 	if (stack == 0)
 	{
 		fprintf(stderr, "L%d: can't print, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
+		error = 1;
+		return;
 	}
 	printf("%d\n", head->n);
 }
