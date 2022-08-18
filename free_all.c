@@ -1,8 +1,9 @@
 #include "monty.h"
 
 /**
- * @brief
- *
+ * free_all - function to free and leave proper
+ * @stack: pointer to head of stack
+ * @fd: pointer to file opened
  */
 
 void free_all(stack_t *stack, FILE *fd)
