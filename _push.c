@@ -13,12 +13,13 @@ void _push(stack_t **stack, unsigned int line_number)
 	char *arg;
 
 	arg = strtok(NULL, "\n\t\r ");
-	if (arg == NULL)
+	data = atoi(arg);
+
+	if (data == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	data = atoi(arg);
 	if (add_node(stack, data) == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
