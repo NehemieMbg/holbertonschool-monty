@@ -16,16 +16,18 @@ void _check(char *op, stack_t **stack, unsigned int line_number)
 		{"pint", _pint},
 		{"pop", _pop},
 		{"add", _add},
-		{"NULL", NULL},
+		{"swap", _swap},
+		{NULL, NULL},
 	};
 
 	for (i = 0; check_op[i].opcode != NULL; i++)
 	{
-		if (strcmp(check_op[i].opcode, op) == 0)
+		if (strcmp(op, check_op[i].opcode) == 0)
 		{
 			check_op[i].f(stack, line_number);
 			return;
 		}
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op);
+	exit(EXIT_FAILURE);
 }

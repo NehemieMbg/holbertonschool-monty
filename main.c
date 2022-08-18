@@ -1,6 +1,8 @@
 #include "monty.h"
 #include <stdio.h>
 
+int error = 0;
+
 /**
  * main - main monty program to handle the bytecode files
  * @argc: argument count
@@ -10,12 +12,12 @@
 
 int main(int argc, char **argv)
 {
-	FILE *fd = NULL;
+	FILE *fd;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
-	char *str = NULL;
+	char str[1024];
 	char *tok = NULL;
-	size_t n = 0;
+	size_t n = 1024;
 
 	if (argc != 2)
 	{
@@ -29,7 +31,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(&str, &n, fd) != -1)
+	while (fgets(str, n, fd) != NULL && error != 1)
 	{
 		line_number++;
 		tok = strtok(str, "\n\t ");
@@ -38,7 +40,9 @@ int main(int argc, char **argv)
 			_check(tok, &stack, line_number);
 		}
 	}
-	free(str);
 	free_all(stack, fd);
-	exit(EXIT_SUCCESS);
+
+	if (error == 1)
+		exit(EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
