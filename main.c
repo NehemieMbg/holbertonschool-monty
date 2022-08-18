@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	}
 
 	fd = fopen(argv[1], "r");
-	if (fd == 0)
+	if (fd == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	while (getline(&str, &n, fd) != -1)
 	{
 		line_number++;
-		tok = strtok(str, " ");
+		tok = strtok(str, "\n\t\r ");
 		if (tok != NULL)
 		{
 			_check(tok, &stack, line_number);
