@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <ctype.h>
 
 extern int error;
 
@@ -48,6 +49,7 @@ void _pint(stack_t **stack, unsigned int line_number);
 void _swap(stack_t **stack, unsigned int line_number);
 stack_t *add_node(stack_t **stack, int n);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+int check_digit(char *arg);
 
 void free_all(stack_t *stack, FILE *fd);
 void _pop(stack_t **stack, unsigned int line_number);
