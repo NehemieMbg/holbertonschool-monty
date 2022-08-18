@@ -32,11 +32,13 @@ int main(int argc, char **argv)
 	while (getline(&str, &n, fd) != -1)
 	{
 		line_number++;
-		tok = strtok(str, "\n\t\r ");
+		tok = strtok(str, "\n\t ");
 		if (tok != NULL)
 		{
 			_check(tok, &stack, line_number);
 		}
 	}
+	free(str);
+	free_all(stack, fd);
 	exit(EXIT_SUCCESS);
 }
