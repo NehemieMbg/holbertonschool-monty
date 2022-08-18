@@ -13,17 +13,16 @@ void _check(char *op, stack_t **stack, unsigned int line_number)
 	instruction_t check_op[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{"NULL", NULL},
 	};
-
-	printf("%s\n", op);
 
 	for (i = 0; check_op[i].opcode != NULL; i++)
 	{
 		if (strcmp(check_op[i].opcode, op) == 0)
 		{
-			printf("hello from check\n");
 			check_op[i].f(stack, line_number);
+			return;
 		}
 	}
 }
