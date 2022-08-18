@@ -25,4 +25,5 @@ void _check(char *op, stack_t **stack, unsigned int line_number)
 			return;
 		}
 	}
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op);
 }
