@@ -20,6 +20,6 @@ void _add(stack_t **stack, unsigned int line_number)
 	temp = (*stack)->next;
 	temp->n += (*stack)->n;
 
+	free(temp);
 	_pop(stack, line_number);
-	free(stack);
 }
