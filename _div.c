@@ -16,7 +16,7 @@ void _div(stack_t **stack, unsigned int line_number)
 		_pop(stack, line_number);
 		if (divis == 0)
 		{
-			fprintf(stderr, "L%u: division by zero", line_number);
+			fprintf(stderr, "L%u: division by zero\n", line_number);
 			error = 1;
 			return;
 		}
