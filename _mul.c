@@ -11,7 +11,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 
 	if (*stack && (*stack)->next)
 	{
-		res += (*stack)->n;
+		res *= (*stack)->n;
 		_pop(stack, line_number);
 		(*stack)->n *= res;
 	}
@@ -22,4 +22,3 @@ void _mul(stack_t **stack, unsigned int line_number)
 		return;
 	}
 }
-

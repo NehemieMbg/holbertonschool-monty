@@ -20,7 +20,7 @@ void _check(char *op, stack_t **stack, unsigned int line_number)
 		{"nop", _nop},
 		{"sub", _sub},
 		{"div", _div},
-	  {"mul", _mul},
+		{"mul", _mul},
 		{NULL, NULL},
 	};
 
