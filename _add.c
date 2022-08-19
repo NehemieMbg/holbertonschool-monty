@@ -8,18 +8,18 @@
 
 void _add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = malloc(sizeof(stack_t));
+	int res = 0;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	if (*stack && (*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
+		res += (*stack)->n;
+		_pop(stack, line_number);
+		(*stack)->n += res;
 	}
-
-	temp = *stack + (*stack)->next->n;
-	temp = (*stack)->next;
-	temp->n += (*stack)->n;
-
-	free(temp);
-	_pop(stack, line_number);
+	else
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		error = 1;
+		return;
+	}
 }
