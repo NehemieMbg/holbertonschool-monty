@@ -19,7 +19,8 @@ void _check(char *op, stack_t **stack, unsigned int line_number)
 		{"swap", _swap},
 		{"nop", _nop},
 		{"sub", _sub},
-		{"mul", _mul},
+		{"div", _div},
+	  {"mul", _mul},
 		{NULL, NULL},
 	};
 
